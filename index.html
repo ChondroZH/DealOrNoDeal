@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal or No Deal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Deal or No Deal</h1>
+        
+        <!-- TEMPORARY TEST BUTTON - REMOVE LATER -->
+        <!-- <button id="test-win-btn" class="btn" style="position: absolute; top: 10px; right: 10px; padding: 5px 10px; font-size: 0.8rem; background: red; color: white; z-index: 1000;">Test Top Prize</button> -->
+        <!-- END TEST BUTTON -->
+        
+        <div id="game-status" class="game-status">
+            <p id="status-text">Select your case to keep!</p>
+        </div>
+
+        <div class="game-board">
+            <div class="cases-grid" id="cases-grid"></div>
+        </div>
+
+        <div class="prize-boards">
+            <div class="prize-board">
+                <h3>Prize Values</h3>
+                <div class="prizes-container">
+                    <div id="left-prizes" class="prizes-list"></div>
+                    <div id="right-prizes" class="prizes-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banker-area">
+            <div id="banker-offer" class="banker-offer hidden">
+                <h2>Banker's Offer</h2>
+                <div class="offer-amount" id="offer-amount">$0</div>
+                <div class="offer-buttons">
+                    <button id="deal-btn" class="btn btn-deal">DEAL</button>
+                    <button id="no-deal-btn" class="btn btn-no-deal">NO DEAL</button>
+                </div>
+            </div>
+
+            <div id="game-over" class="game-over hidden">
+                <h2 id="final-message"></h2>
+                <div id="final-amount" class="final-amount"></div>
+                <div id="case-reveal" class="case-reveal hidden">
+                    <p>Your case actually contained:</p>
+                    <div id="case-amount" class="case-amount"></div>
+                </div>
+                <button id="restart-btn" class="btn btn-restart">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
