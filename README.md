@@ -105,14 +105,6 @@ DealOrNoDeal/
 - Consider the risk vs. reward of each decision
 - Trust your instincts!
 
-## Contributing
-
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
-- Improve documentation
-
 ## License
 
 This project is released into the public domain under The Unlicense. See the LICENSE file for details.
