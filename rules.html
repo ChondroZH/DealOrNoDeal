@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal or No Deal - Rules</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .rules-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .rules-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .rules-header h1 {
+            color: #ffd700;
+            font-size: 2.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .rules-content {
+            color: white;
+            line-height: 1.8;
+        }
+
+        .rules-section {
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .rules-section h2 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .rules-section h3 {
+            color: #ffeb99;
+            font-size: 1.2rem;
+            margin: 15px 0 10px 0;
+        }
+
+        .rules-section p {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .rules-section ul {
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .rules-section li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .prize-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .prize-table th,
+        .prize-table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .prize-table th {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .prize-table td {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="rules-container">
+            <div class="rules-header">
+                <h1>📋 How to Play</h1>
+            </div>
+
+            <div class="rules-content">
+                <div class="rules-section">
+                    <h2>🎮 Game Overview</h2>
+                    <p>
+                        Deal or No Deal is a game of luck and strategy. You'll face 10 briefcases, each containing a different cash prize. 
+                        Your goal is to either win the highest prize possible or make a deal with the Banker at the right time!
+                    </p>
+                </div>
+
+                <div class="rules-section">
+                    <h2>💰 Prize Values</h2>
+                    <p>The 10 cases contain the following prize values:</p>
+                    <table class="prize-table">
+                        <tr>
+                            <td>$1</td>
+                            <td>$5</td>
+                            <td>$10</td>
+                            <td>$20</td>
+                            <td>$30</td>
+                        </tr>
+                        <tr>
+                            <td>$50</td>
+                            <td>$80</td>
+                            <td>$100</td>
+                            <td>$200</td>
+                            <td class="highlight">$300</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="rules-section">
+                    <h2>📝 How to Play</h2>
+                    
+                    <h3>Step 1: Choose Your Case</h3>
+                    <p>
+                        At the start of the game, select one case from the 10 available. This is <span class="highlight">YOUR case</span> - 
+                        you'll keep it until the end of the game. You won't know what's inside until the very end!
+                    </p>
+
+                    <h3>Step 2: Open Cases in Rounds</h3>
+                    <p>The game is played in 4 rounds. In each round, you'll open a specific number of cases:</p>
+                    <ul>
+                        <li><strong>Round 1:</strong> Open 3 cases</li>
+                        <li><strong>Round 2:</strong> Open 2 cases</li>
+                        <li><strong>Round 3:</strong> Open 2 cases</li>
+                        <li><strong>Round 4:</strong> Open 1 case</li>
+                    </ul>
+                    <p>
+                        As you open cases, their prize values are revealed and eliminated from the board. 
+                        You're hoping to eliminate the low values while keeping the high values in play!
+                    </p>
+
+                    <h3>Step 3: The Banker's Offer</h3>
+                    <p>
+                        After each round, the mysterious <span class="highlight">Banker</span> will make you an offer to buy your case. 
+                        The offer is based on the remaining prizes still in play.
+                    </p>
+                    <p>You have two choices:</p>
+                    <ul>
+                        <li><strong>DEAL:</strong> Accept the Banker's offer and end the game with that amount</li>
+                        <li><strong>NO DEAL:</strong> Reject the offer and continue playing for a chance at a higher prize</li>
+                    </ul>
+
+                    <h3>Step 4: The Final Decision</h3>
+                    <p>
+                        If you keep saying "No Deal," you'll eventually be left with just two cases: your original case and one other. 
+                        At this point, you can either:
+                    </p>
+                    <ul>
+                        <li>Keep your original case</li>
+                        <li>Switch to the other remaining case</li>
+                    </ul>
+                    <p>Then you'll see what you've won!</p>
+                </div>
+
+                <div class="rules-section">
+                    <h2>🎯 Strategy Tips</h2>
+                    <ul>
+                        <li>The Banker's offer is usually influenced by the average of the remaining prizes</li>
+                        <li>If you eliminate high-value cases early, expect lower offers</li>
+                        <li>If low-value cases are eliminated, the Banker's offers will increase</li>
+                        <li>There's no "right" answer - it's all about risk vs. reward!</li>
+                        <li>Trust your instincts and have fun!</li>
+                    </ul>
+                </div>
+
+                <div class="rules-section">
+                    <h2>🏆 Winning</h2>
+                    <p>
+                        You win by either accepting a Banker's offer or revealing your case at the end. 
+                        The highest possible win is <span class="highlight">$300</span>, but any prize is a win!
+                    </p>
+                    <p>
+                        Remember: This is a game of luck and nerves. Do you have what it takes to beat the Banker?
+                    </p>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-button">Back to Game</a>
+        </div>
+    </div>
+</body>
+</html>
