@@ -338,6 +338,9 @@ function showBankerOffer() {
     playBankerOffer();
     updateStatus('The banker has made an offer!');
     
+    // Reset processing flag so game doesn't get stuck
+    isProcessing = false;
+    
     // Set up deal/no deal buttons
     document.getElementById('deal-btn').onclick = () => acceptDeal(offer);
     document.getElementById('no-deal-btn').onclick = () => rejectDeal();
