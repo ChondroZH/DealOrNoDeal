@@ -331,6 +331,8 @@ function showBankerOffer() {
     const offer = calculateOffer();
     const bankerDiv = document.getElementById('banker-offer');
     const offerAmount = document.getElementById('offer-amount');
+    const dealBtn = document.getElementById('deal-btn');
+    const noDealBtn = document.getElementById('no-deal-btn');
     
     offerAmount.textContent = formatMoney(offer);
     bankerDiv.classList.remove('hidden');
@@ -341,9 +343,15 @@ function showBankerOffer() {
     // Reset processing flag so game doesn't get stuck
     isProcessing = false;
     
-    // Set up deal/no deal buttons
-    document.getElementById('deal-btn').onclick = () => acceptDeal(offer);
-    document.getElementById('no-deal-btn').onclick = () => rejectDeal();
+    // Remove old event listeners by cloning and replacing buttons
+    const newDealBtn = dealBtn.cloneNode(true);
+    const newNoDealBtn = noDealBtn.cloneNode(true);
+    dealBtn.parentNode.replaceChild(newDealBtn, dealBtn);
+    noDealBtn.parentNode.replaceChild(newNoDealBtn, noDealBtn);
+    
+    // Set up deal/no deal buttons with fresh listeners
+    newDealBtn.onclick = () => acceptDeal(offer);
+    newNoDealBtn.onclick = () => rejectDeal();
 }
 
 // Accept the deal
@@ -374,9 +382,18 @@ function rejectDeal() {
     isProcessing = false;
     
     const remainingCases = cases.filter(c => !c.opened && !c.isPlayerCase).length;
-    if (remainingCases > 0 && currentRound < casesToOpen.length) {
-        updateStatus(`Open ${casesToOpen[currentRound]} more ${casesToOpen[currentRound] === 1 ? 'case' : 'cases'}.`);
+    
+    // Check if there are more rounds to play
+    if (remainingCases > 0) {
+        if (currentRound < casesToOpen.length) {
+            // More regular rounds to play
+            updateStatus(`Open ${casesToOpen[currentRound]} more ${casesToOpen[currentRound] === 1 ? 'case' : 'cases'}.`);
+        } else {
+            // All rounds completed, end game with final choice
+            endGame(false);
+        }
     } else {
+        // No more cases to open
         endGame(false);
     }
 }
