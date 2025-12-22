@@ -1,23 +1,23 @@
-# 💼 Deal or No Deal
+# Deal or No Deal
 
 A browser-based implementation of the classic game show "Deal or No Deal" built with vanilla JavaScript, HTML, and CSS. Test your luck and strategy as you face off against the Banker!
 
-## 🎮 Game Overview
+## Game Overview
 
 Deal or No Deal is a game of chance and nerve where you select briefcases containing hidden cash prizes. As you eliminate cases, the mysterious Banker makes offers to buy your case. Will you take the deal or risk it all for a bigger prize?
 
-## ✨ Features
+## Features
 
-- **10 Briefcases** with prizes ranging from $1 to $300
-- **Dynamic Banker Offers** based on remaining prizes
-- **4 Exciting Rounds** with strategic case selection
-- **Sound Effects** using Web Audio API for an immersive experience
-- **Responsive Design** that works on desktop and mobile devices
-- **Visual Prize Board** showing eliminated and remaining prizes
-- **Animated Reveals** with smooth transitions and effects
-- **Interactive Rules Page** explaining game mechanics
+- 10 Briefcases with prizes ranging from $1 to $300
+- Dynamic Banker Offers based on remaining prizes
+- 4 Exciting Rounds with strategic case selection
+- Sound Effects using Web Audio API for an immersive experience
+- Responsive Design that works on desktop and mobile devices
+- Visual Prize Board showing eliminated and remaining prizes
+- Animated Reveals with smooth transitions and effects
+- Interactive Rules Page explaining game mechanics
 
-## 🎯 How to Play
+## How to Play
 
 1. **Choose Your Case**: Select one briefcase from the 10 available - this is your case!
 2. **Open Cases**: Each round, open a set number of cases to reveal their prizes
@@ -29,12 +29,12 @@ Deal or No Deal is a game of chance and nerve where you select briefcases contai
 4. **Deal or No Deal**: Accept the offer (DEAL) or continue playing (NO DEAL)
 5. **Final Decision**: If you reach the end, choose to keep your case or switch to the last remaining case
 
-## 💰 Prize Values
+## Prize Values
 
 The game includes 10 prize amounts:
 - $1, $5, $10, $20, $30, $50, $80, $100, $200, $300
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Installation
 
@@ -56,14 +56,14 @@ Simply open `index.html` in any modern web browser:
 - Safari
 - Edge
 
-## 🛠️ Technologies Used
+## Technologies Used
 
-- **HTML5** - Structure and markup
-- **CSS3** - Styling with gradients, animations, and responsive design
-- **JavaScript (ES6+)** - Game logic and interactivity
-- **Web Audio API** - Dynamic sound effects
+- HTML5 - Structure and markup
+- CSS3 - Styling with gradients, animations, and responsive design
+- JavaScript (ES6+) - Game logic and interactivity
+- Web Audio API - Dynamic sound effects
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 DealOrNoDeal/
@@ -75,7 +75,7 @@ DealOrNoDeal/
 └── README.md       # This file
 ```
 
-## 🎨 Features Breakdown
+## Features Breakdown
 
 ### Game Mechanics
 - Random prize distribution for each game
@@ -97,7 +97,7 @@ DealOrNoDeal/
 - Victory fanfares (different for various prize levels)
 - Top prize celebration sequence
 
-## 🎲 Game Strategy Tips
+## Game Strategy Tips
 
 - Early rounds: Hope to eliminate low-value cases
 - Watch the prize board to track remaining values
@@ -105,7 +105,7 @@ DealOrNoDeal/
 - Consider the risk vs. reward of each decision
 - Trust your instincts!
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to:
 - Report bugs
@@ -113,19 +113,19 @@ Contributions are welcome! Feel free to:
 - Submit pull requests
 - Improve documentation
 
-## 📝 License
+## License
 
-This project is released into the public domain under The Unlicense. See the [LICENSE](LICENSE) file for details.
+This project is released into the public domain under The Unlicense. See the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Inspired by the TV game show "Deal or No Deal"
 - Built as a learning project for web development
 
-## 📧 Contact
+## Contact
 
 Have questions or suggestions? Feel free to open an issue or reach out!
 
 ---
 
-**Enjoy the game and good luck beating the Banker! 🎰💵**
+Enjoy the game and good luck beating the Banker!
