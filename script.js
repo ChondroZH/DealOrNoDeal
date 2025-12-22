@@ -6,7 +6,7 @@ const prizeAmounts = [
 // Game state
 let cases = [];
 let playerCase = null;
-let casesToOpen = [3, 2, 2, 1, 1]; // Cases to open per round
+let casesToOpen = [3, 2, 2, 1]; // Cases to open per round
 let currentRound = 0;
 let casesOpenedThisRound = 0;
 let gameActive = true;
@@ -382,6 +382,14 @@ function rejectDeal() {
 function endGame(isDeal) {
     gameActive = false;
     
+    // Check if there's exactly one case remaining (final round choice)
+    const remainingCases = cases.filter(c => !c.opened && !c.isPlayerCase);
+    if (remainingCases.length === 1 && !isDeal) {
+        // Show the final choice: keep or switch
+        showFinalChoice(remainingCases[0]);
+        return;
+    }
+    
     // Open all remaining cases
     cases.forEach(c => {
         if (!c.opened) {
@@ -394,6 +402,58 @@ function endGame(isDeal) {
     // Small delay before showing game over
     setTimeout(() => {
         showGameOver(isDeal, playerCase.value);
+    }, 800);
+}
+
+// Show final choice (keep or switch)
+function showFinalChoice(lastCase) {
+    const bankerDiv = document.getElementById('banker-offer');
+    
+    // Modify the banker offer display for the final choice
+    bankerDiv.innerHTML = `
+        <h2>Final Decision</h2>
+        <p style="margin-bottom: 20px;">You have Case ${playerCase.number}, and Case ${lastCase.number} remains.</p>
+        <p style="margin-bottom: 30px; font-size: 1.1rem; font-weight: bold;">Do you want to keep your case or switch?</p>
+        <div class="offer-buttons">
+            <button id="keep-btn" class="btn btn-deal">KEEP Case ${playerCase.number}</button>
+            <button id="switch-btn" class="btn btn-no-deal">SWITCH to Case ${lastCase.number}</button>
+        </div>
+    `;
+    
+    bankerDiv.classList.remove('hidden');
+    updateStatus('Make your final choice!');
+    
+    // Set up keep/switch buttons
+    document.getElementById('keep-btn').onclick = () => finalChoice(false, lastCase);
+    document.getElementById('switch-btn').onclick = () => finalChoice(true, lastCase);
+}
+
+// Handle final choice
+function finalChoice(didSwitch, lastCase) {
+    document.getElementById('banker-offer').classList.add('hidden');
+    
+    let finalAmount;
+    if (didSwitch) {
+        // Player switched, so they get the last case value
+        finalAmount = lastCase.value;
+        lastCase.isPlayerCase = true;
+        playerCase.isPlayerCase = false;
+        playerCase = lastCase;
+    } else {
+        // Player kept their original case
+        finalAmount = playerCase.value;
+    }
+    
+    // Open all cases
+    cases.forEach(c => {
+        c.opened = true;
+    });
+    
+    renderCases();
+    
+    // Small delay before showing game over
+    setTimeout(() => {
+        showGameOverWithChoice(didSwitch, finalAmount);
     }, 800);
 }
 
@@ -420,6 +480,29 @@ function showGameOver(isDeal, amount) {
     
     // Play victory sound if won 300 or more
     if (!isDeal && amount >= 300) {
+        playGameOver(amount);
+    }
+}
+
+// Show game over screen with choice info
+function showGameOverWithChoice(didSwitch, amount) {
+    const gameOverDiv = document.getElementById('game-over');
+    const finalMessage = document.getElementById('final-message');
+    const finalAmount = document.getElementById('final-amount');
+    const caseReveal = document.getElementById('case-reveal');
+    
+    if (didSwitch) {
+        finalMessage.textContent = `You switched and won:`;
+    } else {
+        finalMessage.textContent = `You kept your case and won:`;
+    }
+    
+    finalAmount.textContent = formatMoney(amount);
+    caseReveal.classList.add('hidden');
+    gameOverDiv.classList.remove('hidden');
+    
+    // Play victory sound if won 300 or more
+    if (amount >= 300) {
         playGameOver(amount);
     }
 }
