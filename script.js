@@ -178,8 +178,19 @@ function initGame() {
     renderPrizes();
     updateStatus('Select your case to keep!');
     
-    // Hide banker offer and game over
-    document.getElementById('banker-offer').classList.add('hidden');
+    // Reset banker offer HTML to original structure
+    const bankerDiv = document.getElementById('banker-offer');
+    bankerDiv.innerHTML = `
+        <h2>Banker's Offer</h2>
+        <div class="offer-amount" id="offer-amount">$0</div>
+        <div class="offer-buttons">
+            <button id="deal-btn" class="btn btn-deal">DEAL</button>
+            <button id="no-deal-btn" class="btn btn-no-deal">NO DEAL</button>
+        </div>
+    `;
+    bankerDiv.classList.add('hidden');
+    
+    // Hide game over
     document.getElementById('game-over').classList.add('hidden');
 }
 
