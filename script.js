@@ -6,7 +6,7 @@ const prizeAmounts = [
 // Game state
 let cases = [];
 let playerCase = null;
-let casesToOpen = [3, 2, 2, 1]; // Cases to open per round
+let casesToOpen = [3, 3, 2]; // Cases to open per round
 let currentRound = 0;
 let casesOpenedThisRound = 0;
 let gameActive = true;
@@ -392,10 +392,17 @@ function rejectDeal() {
     document.getElementById('banker-offer').classList.add('hidden');
     isProcessing = false;
     
-    const remainingCases = cases.filter(c => !c.opened && !c.isPlayerCase).length;
+    const remainingCases = cases.filter(c => !c.opened && !c.isPlayerCase);
+    
+    // Check if we just finished the last round (Round 4)
+    if (currentRound >= casesToOpen.length && remainingCases.length === 1) {
+        // After the final round, go directly to the switch choice
+        endGame(false);
+        return;
+    }
     
     // Check if there are more rounds to play
-    if (remainingCases > 0) {
+    if (remainingCases.length > 0) {
         if (currentRound < casesToOpen.length) {
             // More regular rounds to play
             updateStatus(`Open ${casesToOpen[currentRound]} more ${casesToOpen[currentRound] === 1 ? 'case' : 'cases'}.`);
