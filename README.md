@@ -10,7 +10,8 @@ Deal or No Deal is a game of chance and nerve where you select briefcases contai
 
 - 10 Briefcases with prizes ranging from $1 to $300
 - Dynamic Banker Offers based on remaining prizes
-- 4 Exciting Rounds with strategic case selection
+- 3 Exciting Rounds with strategic case selection
+- Final Switch Decision between your case and the last remaining case
 - Sound Effects using Web Audio API for an immersive experience
 - Responsive Design that works on desktop and mobile devices
 - Visual Prize Board showing eliminated and remaining prizes
@@ -22,12 +23,11 @@ Deal or No Deal is a game of chance and nerve where you select briefcases contai
 1. **Choose Your Case**: Select one briefcase from the 10 available - this is your case!
 2. **Open Cases**: Each round, open a set number of cases to reveal their prizes
    - Round 1: Open 3 cases
-   - Round 2: Open 2 cases
+   - Round 2: Open 3 cases
    - Round 3: Open 2 cases
-   - Round 4: Open 1 case
 3. **Face the Banker**: After each round, the Banker makes an offer based on remaining prizes
 4. **Deal or No Deal**: Accept the offer (DEAL) or continue playing (NO DEAL)
-5. **Final Decision**: If you reach the end, choose to keep your case or switch to the last remaining case
+5. **Final Decision**: If you reach the end and reject the final offer, choose to keep your case or switch to the last remaining case
 
 ## Prize Values
 
@@ -113,11 +113,3 @@ This project is released into the public domain under The Unlicense. See the LIC
 
 - Inspired by the TV game show "Deal or No Deal"
 - Built as a learning project for web development
-
-## Contact
-
-Have questions or suggestions? Feel free to open an issue or reach out!
-
----
-
-Enjoy the game and good luck beating the Banker!
